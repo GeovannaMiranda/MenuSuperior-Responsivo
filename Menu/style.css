@@ -4,6 +4,11 @@ body, ul{
     font-family: sans-serif;
 }
 
+.material-icons-outlined{
+    vertical-align: middle;
+    position: relative;
+}
+
 a{
     color: #FFFF;
     text-decoration: none;
@@ -40,16 +45,23 @@ a:hover{
 }
 
 @media (max-width: 600px){
+
+
+    .material-icons-outlined{
+        vertical-align: middle;
+        position: relative;
+        margin-right: 5px;
+    }
+    
     #btn-mobile{
         display: block;
     }
     #menu{
         display: block;
         position: absolute;
-        width: 100%;
-        top: 70px;
-        left: 15px;
-        top: 8rem;
+        width: 28rem;
+        top: 7rem;
+        left: 12px;
         background: #00652E;
         z-index: 1000;
         height: 50rem;
@@ -59,10 +71,11 @@ a:hover{
         overflow-y: hidden;
     }
     #nav.active #menu{
-        height: calc(100vh - 70px);
+        height: calc(50vh - 70px);
         visibility: visible;
         overflow-y: auto;
     }
+   
 
     #menu a{
         padding: 1rem 0;

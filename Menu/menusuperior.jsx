@@ -2,34 +2,37 @@ import { event } from "jquery";
 import React, { useEffect, useState } from "react";
 import logo from '../img/logotora75x72.png';
 import style from '../Menu/style.css';
-
+import MaterialIcons from 'material-icons';
 function Menusuperior() {
 
-    const btnMobile = document.getElementById('btn-mobile');
-    const [click, setClick] = useState("")
 
-    useEffect(() => {
-        const nav = document.getElementById('nav')
-        nav.classList.toggle('active')   
-        
-    }, [])
+    const [isNavExpanded, setIsNavExpanded] = useState(false)
 
-    function toggleMenu() {
-        setClick(btnMobile)
-    }
+    // useEffect(() => {
+    //     const btnMobile = document.getElementById('btn-mobile');
+    //     const nav = document.getElementById('nav')
+    //     nav.classList.toggle('active')
+    // }, [])
+
 
     return (
         <div id="header">
-            <img href="" id='logo' src={logo} type="submit"></img>
-            <nav id="nav">
-                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false" onClick={toggleMenu}><span id="hamburguer"></span></button>
-                <ul id="menu" role="menu">
+            <img href="" id='logo' src={logo} ></img>
+            <nav id="nav" className={isNavExpanded ? "active" : "inactive"}>
+                <button aria-label="Abrir Menu" id="btn-mobile" aria-haspopup="true" aria-controls="menu" aria-expanded="false" onClick={() => {setIsNavExpanded(!isNavExpanded); }}><span id="hamburguer"></span></button>
+                <ul id="menu" role="menu"  >
                     <li><a href="">Inicio</a></li>
                     <li><a href="">Cadastro</a></li>
                     <li><a href="">Consulta QRcode</a></li>
                     <li><a href="">CPF's Inválidos</a></li>
                     <li><a href="">Sair</a></li>
+              
                 </ul>
+      {/* <li><a href=""><i className="material-icons-outlined">home</i>Inicio</a></li>
+                    <li><a href=""><i className="material-icons-outlined">perm_identity</i>Cadastro</a></li>
+                    <li><a href=""><i className="material-icons-outlined">qr_code_2</i>Consulta QRcode</a></li>
+                    <li><a href=""><i className="material-icons-outlined">description</i>CPF's Inválidos</a></li>
+                    <li><a href=""><i className="material-icons-outlined">login</i>Sair</a></li> */}
             </nav>
         </div>
     )
